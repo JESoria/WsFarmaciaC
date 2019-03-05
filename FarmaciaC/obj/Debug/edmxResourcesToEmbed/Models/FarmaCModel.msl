@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="farmaciacModelStoreContainer" CdmEntityContainer="farmaciacEntities">
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="farmaciacModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="categoria1" ColumnName="categoria" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="laboratorio">
+      <EntityTypeMapping TypeName="farmaciacModel.laboratorio">
+        <MappingFragment StoreEntitySet="laboratorio">
+          <ScalarProperty Name="id_laboratorio" ColumnName="id_laboratorio" />
+          <ScalarProperty Name="laboratorio1" ColumnName="laboratorio" />
+          <ScalarProperty Name="titular" ColumnName="titular" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="presentacion">
+      <EntityTypeMapping TypeName="farmaciacModel.presentacion">
+        <MappingFragment StoreEntitySet="presentacion">
+          <ScalarProperty Name="id_presentacion" ColumnName="id_presentacion" />
+          <ScalarProperty Name="presentacion1" ColumnName="presentacion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="farmaciacModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="id_presentacion" ColumnName="id_presentacion" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_laboratorio" ColumnName="id_laboratorio" />
+          <ScalarProperty Name="producto1" ColumnName="producto" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursal">
+      <EntityTypeMapping TypeName="farmaciacModel.sucursal">
+        <MappingFragment StoreEntitySet="sucursal">
+          <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+          <ScalarProperty Name="sucursal1" ColumnName="sucursal" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursal_producto">
+      <EntityTypeMapping TypeName="farmaciacModel.sucursal_producto">
+        <MappingFragment StoreEntitySet="sucursal_producto">
+          <ScalarProperty Name="id_sucursal_producto" ColumnName="id_sucursal_producto" />
+          <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />
+          <ScalarProperty Name="existencia" ColumnName="existencia" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="farmacia">
+      <EntityTypeMapping TypeName="farmaciacModel.farmacia">
+        <MappingFragment StoreEntitySet="farmacia">
+          <ScalarProperty Name="pagina_web" ColumnName="pagina_web" />
+          <ScalarProperty Name="atencion_al_cliente" ColumnName="atencion_al_cliente" />
+          <ScalarProperty Name="nombre_farmacia" ColumnName="nombre_farmacia" />
+          <ScalarProperty Name="idfarmacia" ColumnName="idfarmacia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

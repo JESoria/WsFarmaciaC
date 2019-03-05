@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="farmaciacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="producto" Relationship="Self.fk_categoria" FromRole="categoria" ToRole="producto" />
+  </EntityType>
+  <EntityType Name="laboratorio">
+    <Key>
+      <PropertyRef Name="id_laboratorio" />
+    </Key>
+    <Property Name="id_laboratorio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="laboratorio1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="titular" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="producto" Relationship="Self.fk_laboratorio" FromRole="laboratorio" ToRole="producto" />
+  </EntityType>
+  <EntityType Name="presentacion">
+    <Key>
+      <PropertyRef Name="id_presentacion" />
+    </Key>
+    <Property Name="id_presentacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="presentacion1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="producto" Relationship="Self.fk_presentacio" FromRole="presentacion" ToRole="producto" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="id_producto" />
+    </Key>
+    <Property Name="id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_presentacion" Type="Int32" />
+    <Property Name="id_categoria" Type="Int32" />
+    <Property Name="id_laboratorio" Type="Int32" />
+    <Property Name="producto1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="categoria" Relationship="Self.fk_categoria" FromRole="producto" ToRole="categoria" />
+    <NavigationProperty Name="laboratorio" Relationship="Self.fk_laboratorio" FromRole="producto" ToRole="laboratorio" />
+    <NavigationProperty Name="presentacion" Relationship="Self.fk_presentacio" FromRole="producto" ToRole="presentacion" />
+    <NavigationProperty Name="sucursal_producto" Relationship="Self.sucursal_producto_ibfk_2" FromRole="producto" ToRole="sucursal_producto" />
+  </EntityType>
+  <EntityType Name="sucursal">
+    <Key>
+      <PropertyRef Name="id_sucursal" />
+    </Key>
+    <Property Name="id_sucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sucursal1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="longitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="latitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="sucursal_producto" Relationship="Self.sucursal_producto_ibfk_1" FromRole="sucursal" ToRole="sucursal_producto" />
+  </EntityType>
+  <EntityType Name="sucursal_producto">
+    <Key>
+      <PropertyRef Name="id_sucursal_producto" />
+    </Key>
+    <Property Name="id_sucursal_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_sucursal" Type="Int32" Nullable="false" />
+    <Property Name="id_producto" Type="Int32" Nullable="false" />
+    <Property Name="fecha_vencimiento" Type="DateTime" Nullable="false" />
+    <Property Name="existencia" Type="Int32" Nullable="false" />
+    <Property Name="precio" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="producto" Relationship="Self.sucursal_producto_ibfk_2" FromRole="sucursal_producto" ToRole="producto" />
+    <NavigationProperty Name="sucursal" Relationship="Self.sucursal_producto_ibfk_1" FromRole="sucursal_producto" ToRole="sucursal" />
+  </EntityType>
+  <Association Name="fk_categoria">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_laboratorio">
+    <End Role="laboratorio" Type="Self.laboratorio" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="laboratorio">
+        <PropertyRef Name="id_laboratorio" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_laboratorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_presentacio">
+    <End Role="presentacion" Type="Self.presentacion" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presentacion">
+        <PropertyRef Name="id_presentacion" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="id_presentacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sucursal_producto_ibfk_2">
+    <End Role="producto" Type="Self.producto" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="sucursal_producto" Type="Self.sucursal_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="id_producto" />
+      </Principal>
+      <Dependent Role="sucursal_producto">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sucursal_producto_ibfk_1">
+    <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="sucursal_producto" Type="Self.sucursal_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="sucursal_producto">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="farmaciacEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categoria" EntityType="Self.categoria" />
+    <EntitySet Name="laboratorio" EntityType="Self.laboratorio" />
+    <EntitySet Name="presentacion" EntityType="Self.presentacion" />
+    <EntitySet Name="producto" EntityType="Self.producto" />
+    <EntitySet Name="sucursal" EntityType="Self.sucursal" />
+    <EntitySet Name="sucursal_producto" EntityType="Self.sucursal_producto" />
+    <AssociationSet Name="fk_categoria" Association="Self.fk_categoria">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_laboratorio" Association="Self.fk_laboratorio">
+      <End Role="laboratorio" EntitySet="laboratorio" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_presentacio" Association="Self.fk_presentacio">
+      <End Role="presentacion" EntitySet="presentacion" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="sucursal_producto_ibfk_2" Association="Self.sucursal_producto_ibfk_2">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="sucursal_producto" EntitySet="sucursal_producto" />
+    </AssociationSet>
+    <AssociationSet Name="sucursal_producto_ibfk_1" Association="Self.sucursal_producto_ibfk_1">
+      <End Role="sucursal" EntitySet="sucursal" />
+      <End Role="sucursal_producto" EntitySet="sucursal_producto" />
+    </AssociationSet>
+    <EntitySet Name="farmacia" EntityType="farmaciacModel.farmacia" />
+  </EntityContainer>
+  <EntityType Name="farmacia">
+    <Key>
+      <PropertyRef Name="idfarmacia" />
+    </Key>
+    <Property Name="idfarmacia" Type="Int32" Nullable="false" />
+    <Property Name="nombre_farmacia" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="atencion_al_cliente" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="pagina_web" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
