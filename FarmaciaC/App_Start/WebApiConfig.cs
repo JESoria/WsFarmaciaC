@@ -28,6 +28,11 @@ namespace FarmaciaC
              defaults: new { Controller = "Search", Action = "NearbyDrugstore" }
              );
 
+            config.Routes.MapHttpRoute(
+             name: "SearchByDrugstore",
+             routeTemplate: "api/SearchByDrugstore",
+             defaults: new { Controller = "SearchByDrugstore", Action = "SearchDrugstore" }
+             );
 
             config.Routes.MapHttpRoute(
                 name: "Detail",
