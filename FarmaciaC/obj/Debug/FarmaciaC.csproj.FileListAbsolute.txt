@@ -131,3 +131,5 @@ C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\Farmac
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.csproj.CopyComplete
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.pdb
+C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\MySql.Data.xml
+C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\MySql.Data.Entity.EF6.xml
