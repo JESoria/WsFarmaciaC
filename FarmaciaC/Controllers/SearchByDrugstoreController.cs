@@ -10,11 +10,11 @@ namespace FarmaciaC.Controllers
     public class SearchByDrugstoreController : ApiController
     {
         [HttpPost]
-        public Task<IHttpActionResult> SearchDrugstore (SearchModel data)
+        public IHttpActionResult SearchDrugstore(SearchModel data)
         {
-            List<ProductSearchModel> lista  = new List<ProductSearchModel>();
+            List<ProductSearchModel> lista = new List<ProductSearchModel>();
 
-            using (farmaciacEntities  db = new farmaciacEntities())
+            using (farmaciacEntities db = new farmaciacEntities())
             {
 
                 db.sucursal_producto.OrderBy(x => x.ID_SUCURSAL_PRODUCTO).ToList().ForEach(x =>

@@ -14,7 +14,7 @@ namespace FarmaciaC.Controllers
     public class SearchController : ApiController
     {
         [HttpPost]
-        public Task<IHttpActionResult> NearbyDrugstore(SearchModel data)
+        public IHttpActionResult NearbyDrugstore(SearchModel data)
         {
             string producto = data.producto;
 
@@ -24,7 +24,7 @@ namespace FarmaciaC.Controllers
                 List<ProductSearchModel> lista = new List<ProductSearchModel>();
                 List<ProductSearchModel> lista2 = new List<ProductSearchModel>();
                 var Farmacia = db.farmacia.FirstOrDefault();
-                   
+
 
                 db.sucursal_producto.OrderBy(x => x.ID_SUCURSAL_PRODUCTO).ToList().ForEach(x =>
                 {
@@ -73,7 +73,7 @@ namespace FarmaciaC.Controllers
             }
 
             return Ok();
-            
+
         }
     }
 }
