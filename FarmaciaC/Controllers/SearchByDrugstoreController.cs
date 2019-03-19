@@ -17,16 +17,16 @@ namespace FarmaciaC.Controllers
             using (farmaciacEntities  db = new farmaciacEntities())
             {
 
-                db.sucursal_producto.OrderBy(x => x.id_sucursal_producto).ToList().ForEach(x =>
+                db.sucursal_producto.OrderBy(x => x.ID_SUCURSAL_PRODUCTO).ToList().ForEach(x =>
                 {
-                    db.producto.Where(y => y.id_producto == x.id_producto && y.producto1.Contains(data.producto) && x.id_sucursal == data.idSucursal).ToList().ForEach(z =>
+                    db.producto.Where(y => y.ID_PRODUCTO == x.ID_PRODUCTO && y.PRODUCTO1.Contains(data.producto) && x.ID_SUCURSAL == data.idSucursal).ToList().ForEach(z =>
                     {
                         lista.Add(new ProductSearchModel
                         {
-                            idSucursalProducto = x.id_sucursal_producto,
-                            idSucursal = x.id_sucursal,
-                            producto = z.producto1,
-                            precio = Convert.ToDecimal(x.precio)
+                            idSucursalProducto = x.ID_SUCURSAL_PRODUCTO,
+                            idSucursal = x.ID_SUCURSAL,
+                            producto = z.PRODUCTO1,
+                            precio = Convert.ToDecimal(x.PRECIO)
                         });
                     });
                 });

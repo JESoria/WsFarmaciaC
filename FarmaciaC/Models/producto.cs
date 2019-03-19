@@ -20,12 +20,13 @@ namespace FarmaciaC.Models
             this.sucursal_producto = new HashSet<sucursal_producto>();
         }
     
-        public int id_producto { get; set; }
-        public Nullable<int> id_presentacion { get; set; }
-        public Nullable<int> id_categoria { get; set; }
-        public Nullable<int> id_laboratorio { get; set; }
-        public string producto1 { get; set; }
-        public string descripcion { get; set; }
+        public int ID_PRODUCTO { get; set; }
+        public int ID_PRESENTACION { get; set; }
+        public int ID_CATEGORIA { get; set; }
+        public int ID_LABORATORIO { get; set; }
+        public string PRODUCTO1 { get; set; }
+        public string DESCRIPCION { get; set; }
+        public byte[] IMAGEN_PRODUCTO { get; set; }
     
         public virtual categoria categoria { get; set; }
         public virtual laboratorio laboratorio { get; set; }

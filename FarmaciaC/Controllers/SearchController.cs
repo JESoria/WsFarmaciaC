@@ -23,18 +23,18 @@ namespace FarmaciaC.Controllers
                 var coord = new GeoCoordinate(data.latitud, data.longitud);
                 List<ProductSearchModel> lista = new List<ProductSearchModel>();
                 List<ProductSearchModel> lista2 = new List<ProductSearchModel>();
-                var Farmacia = db.farmacia.Distinct().FirstOrDefault();
+                var Farmacia = db.farmacia.FirstOrDefault();
                    
 
-                db.sucursal_producto.OrderBy(x => x.id_sucursal_producto).ToList().ForEach(x =>
+                db.sucursal_producto.OrderBy(x => x.ID_SUCURSAL_PRODUCTO).ToList().ForEach(x =>
                 {
-                    db.sucursal.Where(s => s.id_sucursal == x.id_sucursal).ToList().ForEach(y =>
+                    db.sucursal.Where(s => s.ID_SUCURSAL == x.ID_SUCURSAL).ToList().ForEach(y =>
                     {
 
-                        db.producto.Where(p => p.id_producto == x.id_producto && p.producto1.Contains(producto)).ToList().ForEach(w =>
+                        db.producto.Where(p => p.ID_PRODUCTO == x.ID_PRODUCTO && p.PRODUCTO1.Contains(producto)).ToList().ForEach(w =>
                         {
 
-                            lista.Add(new ProductSearchModel() { sucursal = y.sucursal1, idSucursal = y.id_sucursal, latitud = y.latitud, longitud = y.longitud, direccion = y.direccion, idSucursalProducto = x.id_sucursal_producto, producto = w.producto1, precio = Convert.ToDecimal(x.precio), idFarmacia = Convert.ToInt32(Farmacia.idfarmacia) });
+                            lista.Add(new ProductSearchModel() { sucursal = y.SUCURSAL1, idSucursal = y.ID_SUCURSAL, latitud = y.LATITUD, longitud = y.LONGITUD, direccion = y.DIRECCION, idSucursalProducto = x.ID_SUCURSAL_PRODUCTO, producto = w.PRODUCTO1, precio = Convert.ToDecimal(x.PRECIO), idFarmacia = Convert.ToInt32(Farmacia.ID_FARMACIA) });
 
                         });
 

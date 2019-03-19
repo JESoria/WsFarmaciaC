@@ -20,9 +20,9 @@ namespace FarmaciaC.Models
             this.producto = new HashSet<producto>();
         }
     
-        public int id_laboratorio { get; set; }
-        public string laboratorio1 { get; set; }
-        public string titular { get; set; }
+        public int ID_LABORATORIO { get; set; }
+        public string LABORATORIO1 { get; set; }
+        public string TITULAR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<producto> producto { get; set; }

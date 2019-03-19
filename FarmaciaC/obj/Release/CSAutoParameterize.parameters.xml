@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="farmaciacEntities-Web.config Connection String" description="farmaciacEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Models.FarmaciaCModel.csdl|res://*/Models.FarmaciaCModel.ssdl|res://*/Models.FarmaciaCModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=serviciowebmysql.mysql.database.azure.com;user id=xiomara@serviciowebmysql;password=MysqlUtec1234;persistsecurityinfo=True;database=farmaciac&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Xiomara\ Alarcon\\Documents\\GitHub\\WsFarmaciaC\\FarmaciaC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='farmaciacEntities']/@connectionString" />
+  </parameter>
+</parameters>

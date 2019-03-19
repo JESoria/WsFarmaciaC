@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="farmaciacModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="ID_CATEGORIA" />
+    </Key>
+    <Property Name="ID_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORIA" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="farmacia">
+    <Key>
+      <PropertyRef Name="ID_FARMACIA" />
+    </Key>
+    <Property Name="ID_FARMACIA" Type="int" Nullable="false" />
+    <Property Name="NOMBRE_FARMACIA" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ATENCION_AL_CLIENTE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PAGINA_WEB" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="laboratorio">
+    <Key>
+      <PropertyRef Name="ID_LABORATORIO" />
+    </Key>
+    <Property Name="ID_LABORATORIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LABORATORIO" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TITULAR" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="presentacion">
+    <Key>
+      <PropertyRef Name="ID_PRESENTACION" />
+    </Key>
+    <Property Name="ID_PRESENTACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRESENTACION" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="ID_PRODUCTO" />
+    </Key>
+    <Property Name="ID_PRODUCTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PRESENTACION" Type="int" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+    <Property Name="ID_LABORATORIO" Type="int" Nullable="false" />
+    <Property Name="PRODUCTO" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IMAGEN_PRODUCTO" Type="longblob" />
+  </EntityType>
+  <EntityType Name="sucursal">
+    <Key>
+      <PropertyRef Name="ID_SUCURSAL" />
+    </Key>
+    <Property Name="ID_SUCURSAL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUCURSAL" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LATITUD" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LONGITUD" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sucursal_producto">
+    <Key>
+      <PropertyRef Name="ID_SUCURSAL_PRODUCTO" />
+    </Key>
+    <Property Name="ID_SUCURSAL_PRODUCTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_SUCURSAL" Type="int" Nullable="false" />
+    <Property Name="ID_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="FECHA_VENCIMIENTO" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="EXISTENCIA" Type="int" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+  </EntityType>
+  <Association Name="producto_ibfk_1">
+    <End Role="presentacion" Type="Self.presentacion" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presentacion">
+        <PropertyRef Name="ID_PRESENTACION" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="ID_PRESENTACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="producto_ibfk_2">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="ID_CATEGORIA" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="ID_CATEGORIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="producto_ibfk_3">
+    <End Role="laboratorio" Type="Self.laboratorio" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="laboratorio">
+        <PropertyRef Name="ID_LABORATORIO" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="ID_LABORATORIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sucursal_producto_ibfk_1">
+    <End Role="sucursal" Type="Self.sucursal" Multiplicity="1" />
+    <End Role="sucursal_producto" Type="Self.sucursal_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sucursal">
+        <PropertyRef Name="ID_SUCURSAL" />
+      </Principal>
+      <Dependent Role="sucursal_producto">
+        <PropertyRef Name="ID_SUCURSAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sucursal_producto_ibfk_2">
+    <End Role="producto" Type="Self.producto" Multiplicity="1" />
+    <End Role="sucursal_producto" Type="Self.sucursal_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="ID_PRODUCTO" />
+      </Principal>
+      <Dependent Role="sucursal_producto">
+        <PropertyRef Name="ID_PRODUCTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="farmaciacModelStoreContainer">
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="farmacia" EntityType="Self.farmacia" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="laboratorio" EntityType="Self.laboratorio" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="presentacion" EntityType="Self.presentacion" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="sucursal_producto" EntityType="Self.sucursal_producto" Schema="farmaciac" store:Type="Tables" />
+    <AssociationSet Name="producto_ibfk_1" Association="Self.producto_ibfk_1">
+      <End Role="presentacion" EntitySet="presentacion" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="producto_ibfk_2" Association="Self.producto_ibfk_2">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="producto_ibfk_3" Association="Self.producto_ibfk_3">
+      <End Role="laboratorio" EntitySet="laboratorio" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="sucursal_producto_ibfk_1" Association="Self.sucursal_producto_ibfk_1">
+      <End Role="sucursal" EntitySet="sucursal" />
+      <End Role="sucursal_producto" EntitySet="sucursal_producto" />
+    </AssociationSet>
+    <AssociationSet Name="sucursal_producto_ibfk_2" Association="Self.sucursal_producto_ibfk_2">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="sucursal_producto" EntitySet="sucursal_producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="farmaciacModelStoreContainer" CdmEntityContainer="farmaciacEntities">
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="farmaciacModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="CATEGORIA1" ColumnName="CATEGORIA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="laboratorio">
+      <EntityTypeMapping TypeName="farmaciacModel.laboratorio">
+        <MappingFragment StoreEntitySet="laboratorio">
+          <ScalarProperty Name="ID_LABORATORIO" ColumnName="ID_LABORATORIO" />
+          <ScalarProperty Name="LABORATORIO1" ColumnName="LABORATORIO" />
+          <ScalarProperty Name="TITULAR" ColumnName="TITULAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="presentacion">
+      <EntityTypeMapping TypeName="farmaciacModel.presentacion">
+        <MappingFragment StoreEntitySet="presentacion">
+          <ScalarProperty Name="ID_PRESENTACION" ColumnName="ID_PRESENTACION" />
+          <ScalarProperty Name="PRESENTACION1" ColumnName="PRESENTACION" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="farmaciacModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="ID_PRESENTACION" ColumnName="ID_PRESENTACION" />
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="ID_LABORATORIO" ColumnName="ID_LABORATORIO" />
+          <ScalarProperty Name="PRODUCTO1" ColumnName="PRODUCTO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IMAGEN_PRODUCTO" ColumnName="IMAGEN_PRODUCTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursal">
+      <EntityTypeMapping TypeName="farmaciacModel.sucursal">
+        <MappingFragment StoreEntitySet="sucursal">
+          <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+          <ScalarProperty Name="SUCURSAL1" ColumnName="SUCURSAL" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="LATITUD" ColumnName="LATITUD" />
+          <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursal_producto">
+      <EntityTypeMapping TypeName="farmaciacModel.sucursal_producto">
+        <MappingFragment StoreEntitySet="sucursal_producto">
+          <ScalarProperty Name="ID_SUCURSAL_PRODUCTO" ColumnName="ID_SUCURSAL_PRODUCTO" />
+          <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+          <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+          <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
+          <ScalarProperty Name="EXISTENCIA" ColumnName="EXISTENCIA" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="farmacia">
+      <EntityTypeMapping TypeName="farmaciacModel.farmacia">
+        <MappingFragment StoreEntitySet="farmacia">
+          <ScalarProperty Name="PAGINA_WEB" ColumnName="PAGINA_WEB" />
+          <ScalarProperty Name="ATENCION_AL_CLIENTE" ColumnName="ATENCION_AL_CLIENTE" />
+          <ScalarProperty Name="NOMBRE_FARMACIA" ColumnName="NOMBRE_FARMACIA" />
+          <ScalarProperty Name="ID_FARMACIA" ColumnName="ID_FARMACIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

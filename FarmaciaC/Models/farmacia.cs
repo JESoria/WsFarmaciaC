@@ -14,9 +14,9 @@ namespace FarmaciaC.Models
     
     public partial class farmacia
     {
-        public int idfarmacia { get; set; }
-        public string nombre_farmacia { get; set; }
-        public string atencion_al_cliente { get; set; }
-        public string pagina_web { get; set; }
+        public int ID_FARMACIA { get; set; }
+        public string NOMBRE_FARMACIA { get; set; }
+        public string ATENCION_AL_CLIENTE { get; set; }
+        public string PAGINA_WEB { get; set; }
     }
 }

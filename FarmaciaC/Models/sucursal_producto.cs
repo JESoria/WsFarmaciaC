@@ -14,12 +14,12 @@ namespace FarmaciaC.Models
     
     public partial class sucursal_producto
     {
-        public int id_sucursal_producto { get; set; }
-        public int id_sucursal { get; set; }
-        public int id_producto { get; set; }
-        public System.DateTime fecha_vencimiento { get; set; }
-        public int existencia { get; set; }
-        public decimal precio { get; set; }
+        public int ID_SUCURSAL_PRODUCTO { get; set; }
+        public int ID_SUCURSAL { get; set; }
+        public int ID_PRODUCTO { get; set; }
+        public System.DateTime FECHA_VENCIMIENTO { get; set; }
+        public int EXISTENCIA { get; set; }
+        public decimal PRECIO { get; set; }
     
         public virtual producto producto { get; set; }
         public virtual sucursal sucursal { get; set; }

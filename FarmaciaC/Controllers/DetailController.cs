@@ -18,22 +18,22 @@ namespace FarmaciaC.Controllers
 
             using (farmaciacEntities db = new farmaciacEntities())
             {
-                db.sucursal_producto.Where(x => x.id_sucursal_producto == data.idSucursalProducto).ToList().ForEach(x => {
-                    db.producto.Where(y => y.id_producto == x.id_producto).ToList().ForEach(y => {
-                        db.presentacion.Where(z => z.id_presentacion == y.id_presentacion).ToList().ForEach(z => {
-                            db.categoria.Where(c => c.id_categoria == y.id_categoria).ToList().ForEach(c => {
-                                db.laboratorio.Where(l => l.id_laboratorio == y.id_laboratorio).ToList().ForEach(l =>
+                db.sucursal_producto.Where(x => x.ID_SUCURSAL_PRODUCTO == data.idSucursalProducto).ToList().ForEach(x => {
+                    db.producto.Where(y => y.ID_PRODUCTO == x.ID_PRODUCTO).ToList().ForEach(y => {
+                        db.presentacion.Where(z => z.ID_PRESENTACION == y.ID_PRESENTACION).ToList().ForEach(z => {
+                            db.categoria.Where(c => c.ID_CATEGORIA == y.ID_CATEGORIA).ToList().ForEach(c => {
+                                db.laboratorio.Where(l => l.ID_LABORATORIO == y.ID_LABORATORIO).ToList().ForEach(l =>
                                 {
                                     detalle = new DetailModel()
                                     {
-                                        producto = y.producto1,
-                                        presentacion = z.presentacion1,
-                                        fechaVencimiento = x.fecha_vencimiento,
-                                        laboratorio = l.laboratorio1,
-                                        principiosActivos = y.descripcion,
-                                        categoria = c.categoria1,
-                                        precio = Convert.ToDouble(x.precio),
-                                        existencia = x.existencia
+                                        producto = y.PRODUCTO1,
+                                        presentacion = z.PRESENTACION1,
+                                        fechaVencimiento = x.FECHA_VENCIMIENTO,
+                                        laboratorio = l.LABORATORIO1,
+                                        principiosActivos = y.DESCRIPCION,
+                                        categoria = c.CATEGORIA1,
+                                        precio = Convert.ToDouble(x.PRECIO),
+                                        existencia = x.EXISTENCIA
                                     };
                                 });
                             });

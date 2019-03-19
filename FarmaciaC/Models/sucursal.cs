@@ -20,12 +20,12 @@ namespace FarmaciaC.Models
             this.sucursal_producto = new HashSet<sucursal_producto>();
         }
     
-        public int id_sucursal { get; set; }
-        public string sucursal1 { get; set; }
-        public string direccion { get; set; }
-        public string longitud { get; set; }
-        public string latitud { get; set; }
-        public string telefono { get; set; }
+        public int ID_SUCURSAL { get; set; }
+        public string SUCURSAL1 { get; set; }
+        public string DIRECCION { get; set; }
+        public string LATITUD { get; set; }
+        public string LONGITUD { get; set; }
+        public string TELEFONO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sucursal_producto> sucursal_producto { get; set; }

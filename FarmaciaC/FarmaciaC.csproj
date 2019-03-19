@@ -61,12 +61,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.10\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="MySql.Data.Entity, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entity.6.9.10\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
@@ -211,43 +209,43 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\categoria.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DetailModel.cs" />
     <Compile Include="Models\farmacia.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FarmaCModel.Context.cs">
+    <Compile Include="Models\FarmaciaCModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FarmaCModel.Context.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FarmaCModel.cs">
+    <Compile Include="Models\FarmaciaCModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FarmaCModel.Designer.cs">
+    <Compile Include="Models\FarmaciaCModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FarmaCModel.edmx</DependentUpon>
+      <DependentUpon>FarmaciaCModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\laboratorio.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\presentacion.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\producto.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductSearchModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\sucursal.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sucursal_producto.cs">
-      <DependentUpon>FarmaCModel.tt</DependentUpon>
+      <DependentUpon>FarmaciaCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -258,15 +256,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\FarmaCModel.Context.tt">
+    <Content Include="Models\FarmaciaCModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FarmaCModel.edmx</DependentUpon>
-      <LastGenOutput>FarmaCModel.Context.cs</LastGenOutput>
+      <DependentUpon>FarmaciaCModel.edmx</DependentUpon>
+      <LastGenOutput>FarmaciaCModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\FarmaCModel.tt">
+    <Content Include="Models\FarmaciaCModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FarmaCModel.edmx</DependentUpon>
-      <LastGenOutput>FarmaCModel.cs</LastGenOutput>
+      <DependentUpon>FarmaciaCModel.edmx</DependentUpon>
+      <LastGenOutput>FarmaciaCModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -292,13 +290,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\FarmaCModel.edmx">
+    <EntityDeploy Include="Models\FarmaciaCModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FarmaCModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>FarmaciaCModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FarmaCModel.edmx.diagram">
-      <DependentUpon>FarmaCModel.edmx</DependentUpon>
+    <Content Include="Models\FarmaciaCModel.edmx.diagram">
+      <DependentUpon>FarmaciaCModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FarmaciaC20190317115543 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
