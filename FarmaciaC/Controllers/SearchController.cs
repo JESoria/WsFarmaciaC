@@ -14,7 +14,7 @@ namespace FarmaciaC.Controllers
     public class SearchController : ApiController
     {
         [HttpPost]
-        public async Task<IHttpActionResult> NearbyDrugstore(SearchModel data)
+        public Task<IHttpActionResult> NearbyDrugstore(SearchModel data)
         {
             string producto = data.producto;
 

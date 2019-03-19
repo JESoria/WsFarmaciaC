@@ -12,7 +12,7 @@ namespace FarmaciaC.Controllers
     public class DetailController : ApiController
     {
         [HttpPost]
-        public async Task<IHttpActionResult> ProductDetail(ProductSearchModel data)
+        public Task<IHttpActionResult> ProductDetail(ProductSearchModel data)
         {
             DetailModel detalle = null;
 

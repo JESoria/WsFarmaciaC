@@ -10,7 +10,7 @@ namespace FarmaciaC.Controllers
     public class SearchByDrugstoreController : ApiController
     {
         [HttpPost]
-        public async Task<IHttpActionResult> SearchDrugstore (SearchModel data)
+        public Task<IHttpActionResult> SearchDrugstore (SearchModel data)
         {
             List<ProductSearchModel> lista  = new List<ProductSearchModel>();
 

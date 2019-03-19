@@ -65,3 +65,5 @@ C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Release\Farm
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Release\FarmaciaC.csproj.CopyComplete
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Release\FarmaciaC.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Release\FarmaciaC.pdb
+C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\MySql.Data.xml
+C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\MySql.Data.Entity.EF6.xml
