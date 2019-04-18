@@ -64,12 +64,12 @@ C:\Users\Xiomara Alarcon\source\repos\FarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.cs
 C:\Users\Xiomara Alarcon\source\repos\FarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.dll
 C:\Users\Xiomara Alarcon\source\repos\FarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.pdb
 C:\Users\Xiomara Alarcon\source\repos\FarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.csprojResolveAssemblyReference.cache
-C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\EntityFramework.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\ApplicationInsights.config
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\FarmaciaC.dll.config
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\FarmaciaC.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\FarmaciaC.pdb
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\Antlr3.Runtime.dll
+C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\EntityFramework.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\EntityFramework.SqlServer.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\Google.Protobuf.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\Microsoft.AI.Agent.Intercept.dll
@@ -131,5 +131,3 @@ C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\Farmac
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.csproj.CopyComplete
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.dll
 C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\obj\Debug\FarmaciaC.pdb
-C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\MySql.Data.xml
-C:\Users\Xiomara Alarcon\Documents\GitHub\WsFarmaciaC\FarmaciaC\bin\MySql.Data.Entity.EF6.xml

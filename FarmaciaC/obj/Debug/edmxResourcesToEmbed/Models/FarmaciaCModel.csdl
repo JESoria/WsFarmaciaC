@@ -68,6 +68,18 @@
     <NavigationProperty Name="producto" Relationship="Self.sucursal_producto_ibfk_2" FromRole="sucursal_producto" ToRole="producto" />
     <NavigationProperty Name="sucursal" Relationship="Self.sucursal_producto_ibfk_1" FromRole="sucursal_producto" ToRole="sucursal" />
   </EntityType>
+  <EntityType Name="farmacia">
+    <Key>
+      <PropertyRef Name="ID_FARMACIA" />
+      <PropertyRef Name="NOMBRE_FARMACIA" />
+      <PropertyRef Name="ATENCION_AL_CLIENTE" />
+      <PropertyRef Name="PAGINA_WEB" />
+    </Key>
+    <Property Name="ID_FARMACIA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE_FARMACIA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ATENCION_AL_CLIENTE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PAGINA_WEB" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <Association Name="producto_ibfk_2">
     <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
     <End Role="producto" Type="Self.producto" Multiplicity="*" />
@@ -135,6 +147,7 @@
     <EntitySet Name="producto" EntityType="Self.producto" />
     <EntitySet Name="sucursal" EntityType="Self.sucursal" />
     <EntitySet Name="sucursal_producto" EntityType="Self.sucursal_producto" />
+    <EntitySet Name="farmacia" EntityType="Self.farmacia" />
     <AssociationSet Name="producto_ibfk_2" Association="Self.producto_ibfk_2">
       <End Role="categoria" EntitySet="categoria" />
       <End Role="producto" EntitySet="producto" />
@@ -155,15 +168,5 @@
       <End Role="sucursal" EntitySet="sucursal" />
       <End Role="sucursal_producto" EntitySet="sucursal_producto" />
     </AssociationSet>
-    <EntitySet Name="farmacia" EntityType="farmaciacModel.farmacia" />
   </EntityContainer>
-  <EntityType Name="farmacia">
-    <Key>
-      <PropertyRef Name="ID_FARMACIA" />
-    </Key>
-    <Property Name="ID_FARMACIA" Type="Int32" Nullable="false" />
-    <Property Name="NOMBRE_FARMACIA" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="ATENCION_AL_CLIENTE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="PAGINA_WEB" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>

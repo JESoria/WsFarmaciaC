@@ -68,10 +68,10 @@
     <EntitySetMapping Name="farmacia">
       <EntityTypeMapping TypeName="farmaciacModel.farmacia">
         <MappingFragment StoreEntitySet="farmacia">
-          <ScalarProperty Name="PAGINA_WEB" ColumnName="PAGINA_WEB" />
-          <ScalarProperty Name="ATENCION_AL_CLIENTE" ColumnName="ATENCION_AL_CLIENTE" />
-          <ScalarProperty Name="NOMBRE_FARMACIA" ColumnName="NOMBRE_FARMACIA" />
           <ScalarProperty Name="ID_FARMACIA" ColumnName="ID_FARMACIA" />
+          <ScalarProperty Name="NOMBRE_FARMACIA" ColumnName="NOMBRE_FARMACIA" />
+          <ScalarProperty Name="ATENCION_AL_CLIENTE" ColumnName="ATENCION_AL_CLIENTE" />
+          <ScalarProperty Name="PAGINA_WEB" ColumnName="PAGINA_WEB" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
