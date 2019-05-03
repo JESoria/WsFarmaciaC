@@ -29,8 +29,8 @@ namespace FarmaciaC.Models
         public virtual DbSet<laboratorio> laboratorio { get; set; }
         public virtual DbSet<presentacion> presentacion { get; set; }
         public virtual DbSet<producto> producto { get; set; }
-        public virtual DbSet<sucursal> sucursal { get; set; }
         public virtual DbSet<sucursal_producto> sucursal_producto { get; set; }
         public virtual DbSet<farmacia> farmacia { get; set; }
+        public virtual DbSet<sucursal> sucursal { get; set; }
     }
 }

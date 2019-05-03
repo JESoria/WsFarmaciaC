@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace FarmaciaC.Models
@@ -21,7 +22,7 @@ namespace FarmaciaC.Models
             dist = Math.Acos(dist);
             dist = rad2deg(dist);
             dist = (dist * 60 * 1.1515) / 0.6213711922;          //miles to kms
-
+            
             return Math.Round(dist, 2);
 
         }

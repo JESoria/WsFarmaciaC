@@ -16,64 +16,49 @@ namespace FarmaciaC.Controllers
         [HttpPost]
         public IHttpActionResult NearbyDrugstore(SearchModel data)
         {
-            string producto = data.producto;
+            double lonC = data.longitud;
+            double latC = data.latitud;
 
             using (farmaciacEntities db = new farmaciacEntities())
             {
-                var coord = new GeoCoordinate(data.latitud, data.longitud);
+                GeoCoordinate distanceFrom = new GeoCoordinate();
+                GeoCoordinate distanceTo = new GeoCoordinate();
+                distanceFrom.Latitude = latC;
+                distanceFrom.Longitude = lonC;
+
                 List<ProductSearchModel> lista = new List<ProductSearchModel>();
-                List<ProductSearchModel> lista2 = new List<ProductSearchModel>();
                 var Farmacia = db.farmacia.FirstOrDefault();
 
-
-                db.sucursal_producto.OrderBy(x => x.ID_SUCURSAL_PRODUCTO).ToList().ForEach(x =>
+                db.sucursal.ToList().ForEach(x =>
                 {
-                    db.sucursal.Where(s => s.ID_SUCURSAL == x.ID_SUCURSAL).ToList().ForEach(y =>
+                    double lat = Convert.ToDouble(x.LATITUD, CultureInfo.CreateSpecificCulture("en-US"));
+                    double lon = Convert.ToDouble(x.LONGITUD, CultureInfo.CreateSpecificCulture("en-US"));
+                    distanceTo.Latitude = lat;
+                    distanceTo.Longitude = lon;
+                    
+                    double distance = distanceFrom.GetDistanceTo(distanceTo);
+                    double d = distance / 1000;
+                    if (d < 2)
                     {
-
-                        db.producto.Where(p => p.ID_PRODUCTO == x.ID_PRODUCTO && p.PRODUCTO1.Contains(producto)).ToList().ForEach(w =>
+                        x.sucursal_producto.Where(y => y.producto.PRODUCTO1.ToLower().Contains(data.producto.ToLower())).ToList().ForEach(y =>
                         {
-
-                            lista.Add(new ProductSearchModel() { sucursal = y.SUCURSAL1, idSucursal = y.ID_SUCURSAL, latitud = y.LATITUD, longitud = y.LONGITUD, direccion = y.DIRECCION, idSucursalProducto = x.ID_SUCURSAL_PRODUCTO, producto = w.PRODUCTO1, precio = Convert.ToDecimal(x.PRECIO), idFarmacia = Convert.ToInt32(Farmacia.ID_FARMACIA) });
-
+                            lista.Add(new ProductSearchModel()
+                            {
+                                sucursal = x.SUCURSAL1,
+                                idSucursal = x.ID_SUCURSAL,
+                                latitud = x.LATITUD,
+                                longitud = x.LONGITUD,
+                                direccion = x.DIRECCION,
+                                idSucursalProducto = y.ID_SUCURSAL_PRODUCTO,
+                                producto = y.producto.PRODUCTO1,
+                                precio = Convert.ToDecimal(y.PRECIO),
+                                idFarmacia = Convert.ToInt32(Farmacia.ID_FARMACIA)
+                            });
                         });
-
-                    });
-                });
-
-                if (lista.Count() != 0)
-                {
-                    foreach (var x in lista)
-                    {
-                        double lat = Convert.ToDouble(x.latitud, CultureInfo.CreateSpecificCulture("en-US"));
-                        double lon = Convert.ToDouble(x.longitud, CultureInfo.CreateSpecificCulture("en-US"));
-                        double distance = SearchModel.Distance(data.latitud, data.longitud, lat, lon);
-                        if (distance < 2)
-                        {
-                            ProductSearchModel products = new ProductSearchModel();
-                            products.producto = x.producto;
-                            products.idSucursalProducto = x.idSucursalProducto;
-                            products.idSucursal = x.idSucursal;
-                            products.sucursal = x.sucursal;
-                            products.latitud = x.latitud;
-                            products.longitud = x.longitud;
-                            products.direccion = x.direccion;
-                            products.distancia = distance;
-                            products.precio = x.precio;
-                            products.idFarmacia = x.idFarmacia;
-                            lista2.Add(products);
-                        }
                     }
-                    return Ok(lista2.OrderBy(x => x.distancia));
-                }
-                else
-                {
-                    Ok();
-                }
+                });
+                return Ok(lista);
             }
-
-            return Ok();
-
         }
     }
 }

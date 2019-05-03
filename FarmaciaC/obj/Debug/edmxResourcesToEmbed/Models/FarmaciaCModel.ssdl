@@ -8,16 +8,11 @@
     <Property Name="CATEGORIA" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'def.farmaciac.farmacia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="farmacia">
     <Key>
       <PropertyRef Name="ID_FARMACIA" />
-      <PropertyRef Name="NOMBRE_FARMACIA" />
-      <PropertyRef Name="ATENCION_AL_CLIENTE" />
-      <PropertyRef Name="PAGINA_WEB" />
     </Key>
-    <Property Name="ID_FARMACIA" Type="int" Nullable="false" />
+    <Property Name="ID_FARMACIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOMBRE_FARMACIA" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="ATENCION_AL_CLIENTE" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="PAGINA_WEB" Type="varchar" MaxLength="255" Nullable="false" />
@@ -57,8 +52,8 @@ advertencia 6002: La tabla o vista 'def.farmaciac.farmacia' no tiene definida ni
     <Property Name="ID_SUCURSAL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SUCURSAL" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="DIRECCION" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="LATITUD" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="LONGITUD" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LATITUD" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="TELEFONO" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="sucursal_producto">
@@ -134,19 +129,12 @@ advertencia 6002: La tabla o vista 'def.farmaciac.farmacia' no tiene definida ni
   </Association>
   <EntityContainer Name="farmaciacModelStoreContainer">
     <EntitySet Name="categoria" EntityType="Self.categoria" Schema="farmaciac" store:Type="Tables" />
+    <EntitySet Name="farmacia" EntityType="Self.farmacia" Schema="farmaciac" store:Type="Tables" />
     <EntitySet Name="laboratorio" EntityType="Self.laboratorio" Schema="farmaciac" store:Type="Tables" />
     <EntitySet Name="presentacion" EntityType="Self.presentacion" Schema="farmaciac" store:Type="Tables" />
     <EntitySet Name="producto" EntityType="Self.producto" Schema="farmaciac" store:Type="Tables" />
     <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="farmaciac" store:Type="Tables" />
     <EntitySet Name="sucursal_producto" EntityType="Self.sucursal_producto" Schema="farmaciac" store:Type="Tables" />
-    <EntitySet Name="farmacia" EntityType="Self.farmacia" store:Type="Tables" store:Schema="farmaciac">
-      <DefiningQuery>SELECT
-`farmacia`.`ID_FARMACIA`, 
-`farmacia`.`NOMBRE_FARMACIA`, 
-`farmacia`.`ATENCION_AL_CLIENTE`, 
-`farmacia`.`PAGINA_WEB`
-FROM `farmacia` AS `farmacia`</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="producto_ibfk_1" Association="Self.producto_ibfk_1">
       <End Role="presentacion" EntitySet="presentacion" />
       <End Role="producto" EntitySet="producto" />
